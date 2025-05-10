@@ -14,15 +14,18 @@ common:
 
 schema_config:
   configs:
-  - from: 2025-01-01
-    index:
-      period: 24h
-      prefix: index_
-    store: tsdb
-    object_store: filesystem
-    schema: v13
+    - from: 2025-01-01
+      index:
+        period: 24h
+        prefix: index_
+      store: tsdb
+      object_store: filesystem
+      schema: v13
 
 storage_config:
   tsdb_shipper:
     active_index_directory: /loki/tsdb-index
     cache_location: /loki/tsdb-cache
+
+limits_config:
+  retention_period: 30d
